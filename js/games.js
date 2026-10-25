@@ -133,6 +133,7 @@
       '<div class="dock"><div class="xw__bar"><button type="button" class="xw__nav" data-a="prev" aria-label="Previous clue"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button><button type="button" class="xw__clue" data-a="dir"><b class="xw__cn"></b><span class="xw__ct"></span></button><button type="button" class="xw__nav" data-a="next" aria-label="Next clue"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button></div><div class="kbhost"></div></div>';
 
     var grid = $('.xw__grid', host), msgEl = $('.gm-msg', host), cn = $('.xw__cn', host), ct = $('.xw__ct', host);
+    grid.style.gridTemplateColumns = 'repeat(' + C + ', 1fr)';
     var kb = Keyboard('toggle'); $('.kbhost', host).appendChild(kb.el);
 
     for (r = 0; r < R; r++) for (c = 0; c < C; c++) {
