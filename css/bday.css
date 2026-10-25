@@ -1,0 +1,49 @@
+/* Birthday banner (days-alive counter) + 17 tap-to-blow candles */
+
+.bday { background: var(--navy); color: var(--paper); padding: 54px var(--gutter) 58px; text-align: center; position: relative; overflow: hidden; }
+.bday::before, .bday::after { content: ''; position: absolute; width: 260px; height: 260px; border-radius: 50%; background: var(--pink); opacity: .14; }
+.bday::before { left: -90px; top: -110px; }
+.bday::after { right: -100px; bottom: -130px; }
+.bday__in { position: relative; max-width: 640px; margin: 0 auto; }
+.bday__kicker { display: inline-block; font: 400 .78rem/1 var(--f-type); letter-spacing: .14em; text-transform: uppercase; background: var(--pink); color: var(--navy); padding: 6px 10px; transform: rotate(-2deg); }
+.bday__title { margin: 16px 0 6px; font: 400 clamp(2.3rem, 10vw, 3.6rem)/1 var(--f-display); color: var(--pink); }
+.bday__title em { font-style: italic; color: var(--paper); }
+.bday__lead { margin: 14px 0 10px; font: 600 1.6rem/1.1 var(--f-hand); color: var(--paper); opacity: .9; }
+.bday__count { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
+.bday__cell { min-width: 56px; padding: 10px 6px 8px; background: rgba(251, 246, 239, .08); border: 1px solid rgba(244, 194, 207, .35); border-radius: 12px; }
+.bday__cell--days { min-width: 100px; background: var(--pink); color: var(--navy); border-color: var(--pink); }
+.bday__n { display: block; font: 400 2.1rem/1 var(--f-display); font-variant-numeric: tabular-nums; }
+.bday__cell--days .bday__n { font-size: 2.5rem; }
+.bday__l { display: block; margin-top: 4px; font: 400 .66rem/1 var(--f-type); letter-spacing: .12em; text-transform: uppercase; opacity: .85; }
+.bday__note { margin: 16px 0 0; font: 600 1.45rem/1.15 var(--f-hand); color: var(--pink); }
+
+/* ---- cake ---- */
+.cake { margin: 34px auto 0; width: min(100%, 360px); }
+.cake__hint { margin: 0 0 14px; font: 600 1.4rem/1.15 var(--f-hand); color: var(--navy); }
+.cake__top { position: relative; display: flex; justify-content: center; align-items: flex-end; gap: 2px; padding: 0 10px; touch-action: none; user-select: none; -webkit-user-select: none; }
+.candle { position: relative; width: 18px; height: 74px; padding: 0; border: 0; background: none; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; -webkit-tap-highlight-color: transparent; }
+.candle__stick { width: 7px; height: 38px; border-radius: 2px 2px 0 0; background: repeating-linear-gradient(-45deg, var(--paper) 0 4px, var(--navy) 4px 8px); box-shadow: inset -1px 0 0 rgba(0, 0, 0, .12); }
+.candle:nth-child(even) .candle__stick { background: repeating-linear-gradient(-45deg, var(--paper) 0 4px, var(--red) 4px 8px); height: 34px; }
+.candle__flame { position: relative; width: 10px; height: 16px; margin-bottom: 3px; border-radius: 50% 50% 50% 50% / 62% 62% 38% 38%; background: radial-gradient(circle at 50% 70%, #fff7c2 0 22%, #ffc94a 45%, #ff8a2b 80%); box-shadow: 0 0 10px 3px rgba(255, 190, 80, .55); transform-origin: 50% 90%; animation: flicker 1.4s ease-in-out infinite alternate; transition: transform .25s var(--ease), opacity .25s; }
+.candle:nth-child(3n) .candle__flame { animation-duration: 1.1s; }
+.candle:nth-child(3n+1) .candle__flame { animation-duration: 1.7s; }
+.candle.is-out .candle__flame { transform: scale(0); opacity: 0; animation: none; }
+.candle__smoke { position: absolute; left: 50%; bottom: 40px; width: 8px; height: 8px; margin-left: -4px; border-radius: 50%; background: rgba(90, 90, 100, .35); opacity: 0; pointer-events: none; }
+.candle.is-out .candle__smoke { animation: smoke 1.1s ease-out forwards; }
+.candle:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; border-radius: 4px; }
+@keyframes flicker { 0% { transform: rotate(-3deg) scaleY(1); } 50% { transform: rotate(2deg) scaleY(1.08); } 100% { transform: rotate(-1deg) scaleY(.95); } }
+@keyframes smoke { 0% { opacity: .6; transform: translateY(0) scale(.6); } 100% { opacity: 0; transform: translateY(-34px) scale(2.2); } }
+.cake__body { position: relative; height: 84px; border-radius: 18px 18px 10px 10px; background: var(--paper); box-shadow: var(--shadow-md); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.cake__body::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 22px; background: radial-gradient(circle at 12px -2px, var(--navy) 12px, transparent 13px) 0 0 / 24px 22px repeat-x; }
+.cake__body span { position: relative; margin-top: 14px; font: 400 1.7rem/1 var(--f-display); color: var(--navy); letter-spacing: .04em; }
+.cake__plate { height: 10px; margin: 0 -14px; border-radius: 0 0 50% 50% / 0 0 100% 100%; background: var(--navy); opacity: .85; }
+.cake__count { margin: 12px 0 0; font: 400 .74rem/1 var(--f-type); letter-spacing: .12em; text-transform: uppercase; color: var(--navy); opacity: .75; }
+.cake__done { margin: 16px 0 0; font: 400 clamp(1.6rem, 6vw, 2.2rem)/1.1 var(--f-display); color: var(--navy); }
+.cake__done em { font-style: italic; }
+.cake__relight { margin-top: 12px; font: 600 .82rem/1 var(--f-ui); letter-spacing: .04em; color: var(--navy); background: transparent; border: 1.5px solid var(--navy); border-radius: 999px; padding: 10px 16px; cursor: pointer; }
+.cake__relight:hover { background: var(--navy); color: var(--pink); }
+
+@media (prefers-reduced-motion: reduce) {
+  .candle__flame { animation: none; }
+  .candle.is-out .candle__smoke { animation: none; }
+}

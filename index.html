@@ -15,6 +15,7 @@
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="css/games.css">
+<link rel="stylesheet" href="css/bday.css">
 <script>document.documentElement.className = 'js';</script>
 </head>
 <body class="locked">
@@ -83,6 +84,22 @@
     </div>
   </div>
 </header>
+
+<!-- ============ BIRTHDAY BANNER ============ -->
+<section class="bday" id="bday" aria-labelledby="bdTitle">
+  <div class="bday__in">
+    <p class="bday__kicker" id="bdKicker">26 · 10 · 2026</p>
+    <h2 class="bday__title" id="bdTitle">it's your <em>birthday</em>, E.</h2>
+    <p class="bday__lead">you've been on this planet for</p>
+    <div class="bday__count" role="timer" aria-label="Time since 26 October 2009">
+      <div class="bday__cell bday__cell--days"><span class="bday__n" id="bdDays">6,209</span><span class="bday__l">days</span></div>
+      <div class="bday__cell"><span class="bday__n" id="bdH">00</span><span class="bday__l">hours</span></div>
+      <div class="bday__cell"><span class="bday__n" id="bdM">00</span><span class="bday__l">minutes</span></div>
+      <div class="bday__cell"><span class="bday__n" id="bdS">00</span><span class="bday__l">seconds</span></div>
+    </div>
+    <p class="bday__note">and the world's been better for every single one of them.</p>
+  </div>
+</section>
 
 <!-- ============ 3. HOW IT STARTED ============ -->
 <section class="sec story" id="story" aria-labelledby="story-title">
@@ -360,6 +377,15 @@
 <section class="finale" id="finale" aria-labelledby="finale-title">
   <div class="finale__in">
     <h2 id="finale-title" class="finale__title"><span>happy 17th</span> <span>birthday, <em>E</em></span></h2>
+    <div class="cake" id="cake">
+      <p class="cake__hint">17 candles. blow them out (tap each one, or swipe across) and make a wish.</p>
+      <div class="cake__top" id="candles"></div>
+      <div class="cake__body"><span>E · 17</span></div>
+      <div class="cake__plate" aria-hidden="true"></div>
+      <p class="cake__count" id="cakeCount" aria-live="polite"></p>
+      <p class="cake__done" id="cakeDone" hidden>wish made. <em>happy 17th, E.</em></p>
+      <button class="cake__relight" id="relight" type="button" hidden>light them again</button>
+    </div>
     <p class="finale__sign">&mdash; M</p>
     <button class="finale__again" id="again" type="button">Throw the confetti again</button>
   </div>
@@ -394,5 +420,6 @@
 <script src="js/deck.js"></script>
 <script src="js/gallery.js"></script>
 <script src="js/games.js"></script>
+<script src="js/bday.js"></script>
 </body>
 </html>
